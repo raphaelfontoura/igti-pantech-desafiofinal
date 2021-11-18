@@ -9,4 +9,10 @@ export class PedidoComponent {
 
   constructor(public pedidoService: PedidoService) { }
 
+  realizaPedido() {
+    this.pedidoService.realizaPedido().subscribe(() => {
+      
+    })
+  }
+
 }

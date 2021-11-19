@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Produto } from '../produto';
-import { PedidoService } from '../pedido/pedido.service';
+import { Produto } from '../model/produto';
+import { PedidoService } from '../service/pedido.service';
 
 @Component({
   selector: 'app-cardapio',

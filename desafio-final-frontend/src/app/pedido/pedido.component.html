@@ -26,9 +26,9 @@
 <mat-toolbar>
   <a routerLink="/cardapio" mat-raised-button>Incluir mais itens</a>
   <span class="ml"></span>
-  <button mat-raised-button (click)="pedidoService.limpaPedido()">
+  <button mat-raised-button (click)="limpaPedido()">
     Limpar
   </button>
   <span class="flex-1"></span>
-  <button mat-raised-button color="accent" (click)="pedidoService.realizaPedido()">Concluir</button>
+  <button mat-raised-button color="accent" (click)="realizaPedido()">Concluir</button>
 </mat-toolbar>

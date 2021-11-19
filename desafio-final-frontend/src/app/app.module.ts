@@ -16,13 +16,21 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { PedidoStatusComponent } from './pedido-status/pedido-status.component';
+import { PedidosComponent } from './pedidos/pedidos.component';
+import { AtualizarPedidoComponent } from './atualizar-pedido/atualizar-pedido.component';
+import { PedidoService } from './service/pedido.service';
+
 registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
     AppComponent,
     CardapioComponent,
-    PedidoComponent
+    PedidoComponent,
+    PedidoStatusComponent,
+    PedidosComponent,
+    AtualizarPedidoComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +43,7 @@ registerLocaleData(localePt);
     MatBadgeModule,
     MatIconModule
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt' }, PedidoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

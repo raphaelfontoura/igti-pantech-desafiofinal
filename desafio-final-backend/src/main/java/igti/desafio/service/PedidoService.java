@@ -17,4 +17,8 @@ public class PedidoService {
         pedido.setSituacao(Pedido.SITUACAO_AGUARDANDO);
         return repository.save(pedido);
     }
+
+    public Pedido getById(Integer idPedido) {
+        return repository.findById(idPedido).orElse(null);
+    }
 }

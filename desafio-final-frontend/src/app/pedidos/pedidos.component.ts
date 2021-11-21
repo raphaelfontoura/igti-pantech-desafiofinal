@@ -6,6 +6,7 @@ import { PedidoService } from '../service/pedido.service';
   selector: 'app-pedidos',
   templateUrl: './pedidos.component.html',
   styles: [
+    '.mouse-pointer { cursor: pointer }',
   ]
 })
 export class PedidosComponent implements OnInit {

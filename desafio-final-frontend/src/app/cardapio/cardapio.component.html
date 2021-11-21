@@ -27,9 +27,7 @@
     </h2>
     <mat-list-item (click)="pedidoService.adicionaProduto(produto)">
       <span class="flex-1">{{ produto.descricao }}</span>
-      <span class="fs-small"
-        >R$ {{ produto.preco | number: "0.2-2" }}</span
-      >
+      <span class="fs-small">R$ {{ produto.preco | number: "0.2-2" }}</span>
     </mat-list-item>
   </ng-container>
 </mat-action-list>

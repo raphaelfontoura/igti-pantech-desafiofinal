@@ -1,1 +1,15 @@
-<p>pedidos works!</p>
+<div class="header">
+  <mat-toolbar color="primary">
+    <span>Gerenciar pedidos</span>
+  </mat-toolbar>
+</div>
+<mat-list *ngFor="let pedido of pedidos; let i = index">
+  <mat-list-item [routerLink]="['/pedido', pedido.id, 'atualizar']" [id]=i class="mouse-pointer">
+    <span class="flex-1">Pedido: {{ pedido.id }}</span>
+    <span>{{ pedido.situacao }}</span>
+  </mat-list-item>
+</mat-list>
+<mat-toolbar>
+  <a routerLink="/cardapio" mat-raised-button>Voltar para o Cardápio</a>
+  <span class="ml"></span>
+</mat-toolbar>

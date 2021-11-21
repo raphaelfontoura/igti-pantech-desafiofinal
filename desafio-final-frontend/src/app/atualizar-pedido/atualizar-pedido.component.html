@@ -1,1 +1,43 @@
-<p>atualizar-pedido works!</p>
+<div class="header">
+  <mat-toolbar color="primary">
+    <span>Atualizar pedido</span>
+  </mat-toolbar>
+</div>
+
+<ng-container *ngIf="pedido">
+  <mat-list>
+    <mat-list-item><strong class="flex-1">Número do pedido: </strong> {{pedido.id}} </mat-list-item>
+    <mat-list-item><strong class="flex-1">Data e hora do pedido: </strong> {{pedido.dataHora | date}} </mat-list-item>
+    <mat-list-item>
+      <strong class="flex-1"> Situação: </strong>
+      <select matNativeControl [(ngModel)]="pedido.situacao">
+        <option>Aguardando</option>
+        <option>Em preparação</option>
+        <option>Saiu para entrega</option>
+        <option>Entregue</option>
+      </select>
+    </mat-list-item>
+  </mat-list>
+  <mat-divider></mat-divider>
+  <mat-list>
+    <mat-list-item *ngIf="pedido.itens.length == 0">Seu pedido está vazio.</mat-list-item>
+    <ng-container *ngFor="let item of pedido?.itens">
+      <mat-list-item>
+        <span class="flex-1">{{ item.produto.descricao }}</span>
+        <span>{{ item.quantidade }} &times; R$
+          {{ item.produto.preco | number: "0.2-2" }}</span>
+      </mat-list-item>
+    </ng-container>
+    <!-- <mat-list-item>
+      <strong class="flex-1">Total</strong>
+      <strong>R$ {{ pedidoService.valorTotal | number: "0.2-2" }}</strong>
+    </mat-list-item> -->
+  </mat-list>
+</ng-container>
+<mat-toolbar>
+  <a routerLink="/cardapio" mat-raised-button>Voltar para o Cardápio</a>
+  <span class="ml"></span>
+  <a routerLink="/pedidos" mat-raised-button>Ir para o Pedidos</a>
+  <span class="flex-1"></span>
+  <button mat-raised-button color="accent" (click)="salva()">Salvar</button>
+</mat-toolbar>

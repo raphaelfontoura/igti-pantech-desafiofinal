@@ -6,25 +6,26 @@ import { PedidoService } from '../service/pedido.service';
 @Component({
   selector: 'app-pedido-status',
   templateUrl: './pedido-status.component.html',
-  styles: [
-  ]
+  styleUrls: [],
 })
 export class PedidoStatusComponent implements OnInit {
 
   idPedido: number = 0;
+  pedido: Pedido | null = null;
 
-  constructor(private pedidoService: PedidoService, private route: ActivatedRoute) { }
+  constructor(public pedidoService: PedidoService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(paramMap => {
-      this.idPedido = parseInt(paramMap.get("idPedido") || "0");
+    this.route.paramMap.subscribe(param => {
+      this.idPedido = parseInt(param.get("idPedido") || "0");
       this.carregaPedido();
     });
+    
   }
 
   carregaPedido() {
     this.pedidoService.carregaPedido(this.idPedido).subscribe( pedido => {
-      console.log(pedido);
+      this.pedido = pedido;
     })
   }
 

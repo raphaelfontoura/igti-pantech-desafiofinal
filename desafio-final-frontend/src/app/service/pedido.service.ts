@@ -45,6 +45,10 @@ export class PedidoService {
     return this.httpClient.get<Pedido[]>(urlBase + '/pedidos/');
   }
 
+  atualizaPedido(pedido: Pedido) {
+    return this.httpClient.put<Pedido>(urlBase + '/pedidos/' + pedido.id, pedido);
+  }
+
   get valorTotal() {
     let valor = 0;
     for (const item of this.itens) {
